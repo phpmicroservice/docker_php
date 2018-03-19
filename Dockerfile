@@ -10,7 +10,7 @@ MAINTAINER Dongasai 1514582970@qq.com
 ENV SWOOLE_VERSION=2.1.1
 RUN apt-get update;
 RUN apt-get install -y vim wget;
-RUN docker-php-ext-install pdo pdo_mysql;docker-php-ext-enable pdo pdo_mysql;
+RUN docker-php-ext-install mysql;docker-php-ext-enable mysql;
 RUN docker-php-ext-install bcmath;
 RUN apt-get install -y \
 		libfreetype6-dev \
