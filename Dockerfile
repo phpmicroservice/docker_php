@@ -8,7 +8,6 @@ FROM php:7.1.11-cli
 
 MAINTAINER Dongasai 1514582970@qq.com
 
-RUN a2enmod rewrite
 RUN apt-get update;
 RUN apt-get install -y vim wget;
 ENV SWOOLE_VERSION 2.1.1
