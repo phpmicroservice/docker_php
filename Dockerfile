@@ -4,7 +4,7 @@
 # phpmicroservice/docker_php:71_phalcon_apache
 #
 
-FROM php:7.1.11-apache
+FROM php:7.1.11-cli
 
 MAINTAINER Dongasai 1514582970@qq.com
 
