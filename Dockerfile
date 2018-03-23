@@ -1,7 +1,7 @@
 #
 # php-Microservice 7.1 Dockerfile
 #
-# phpmicroservice/docker_php
+# phpmicroservice/docker_php:71_phalcon_apache
 #
 
 FROM php:7.1.11-apache
