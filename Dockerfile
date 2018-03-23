@@ -12,7 +12,6 @@ RUN a2enmod rewrite
 RUN apt-get update;
 RUN apt-get install -y vim wget;
 ENV SWOOLE_VERSION 2.1.1
-ENV IM_VERSION=6.9.9-34
 
 RUN docker-php-ext-install pdo pdo_mysql;docker-php-ext-enable pdo pdo_mysql;
 RUN pecl install redis-3.1.6 \
