@@ -4,10 +4,11 @@
 # phpmicroservice/docker_php:71_phalcon_apache
 #
 
-FROM php:7.1.11-cli
+FROM php:7.1.11-apache
 
 MAINTAINER Dongasai 1514582970@qq.com
 
+RUN a2enmod rewrite
 RUN apt-get update;
 RUN apt-get install -y vim wget;
 # 安装常用扩展
