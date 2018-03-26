@@ -9,7 +9,8 @@ FROM library/php:5.4.40-apache
 MAINTAINER Dongasai 1514582970@qq.com
 ENV SWOOLE_VERSION=2.1.1
 RUN apt-get update;
-RUN apt-get install -y vim wget
+RUN apt-get install -y git vim wget;
+# 安装常用扩展
 RUN docker-php-ext-install mysql
 RUN docker-php-ext-install bcmath
 RUN apt-get install -y \
