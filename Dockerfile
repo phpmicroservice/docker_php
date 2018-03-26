@@ -27,6 +27,8 @@ RUN apt-get install -y \
 	&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
 	&& docker-php-ext-install -j$(nproc) gd
 RUN docker-php-ext-install mbstring
+# 安装 composer
+RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer;composer config -g repo.packagist composer https://packagist.phpcomposer.com
 # 安装swoole 2.1.1版本 
 ENV SWOOLE_VERSION 2.1.1
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
