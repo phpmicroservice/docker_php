@@ -20,6 +20,7 @@ RUN apt-get install -y libmemcached-dev zlib1g-dev \
     && pecl install memcached-3.0.4\
     && docker-php-ext-enable memcached
 RUN docker-php-ext-install bcmath;
+RUN docker-php-ext-install zip;
 RUN apt-get install -y \
 		libfreetype6-dev \
 		libjpeg62-turbo-dev \
