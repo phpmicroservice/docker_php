@@ -9,7 +9,7 @@ FROM php:7.1.15-cli
 MAINTAINER Dongasai 1514582970@qq.com
 
 RUN apt-get update;
-RUN apt-get install -y git vim wget;
+RUN apt-get install -y git vim wget zip;
 # 安装常用扩展
 RUN docker-php-ext-install pdo pdo_mysql;docker-php-ext-enable pdo pdo_mysql;
 RUN docker-php-ext-install bcmath;
