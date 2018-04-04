@@ -4,13 +4,13 @@
 # phpmicroservice/docker_php:71_phalcon_apache
 #
 
-FROM php:7.1.11-apache
+FROM php:7.1.15-apache
 
 MAINTAINER Dongasai 1514582970@qq.com
 
 RUN a2enmod rewrite
 RUN apt-get update;
-RUN apt-get install -y git vim wget;
+RUN apt-get install -y git vim wget zip;
 
 RUN docker-php-ext-install pdo pdo_mysql;docker-php-ext-enable pdo pdo_mysql;
 RUN docker-php-ext-install mbstring
