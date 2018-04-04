@@ -10,7 +10,7 @@ MAINTAINER Dongasai 1514582970@qq.com
 
 RUN a2enmod rewrite
 RUN apt-get update;
-RUN apt-get install -y git vim wget zip;
+RUN apt-get install -y git vim wget zip zlib1g-dev;
 
 RUN docker-php-ext-install pdo pdo_mysql;docker-php-ext-enable pdo pdo_mysql;
 RUN docker-php-ext-install mbstring
