@@ -32,7 +32,7 @@ RUN apt-get install -y libmemcached-dev zlib1g-dev \
 
 
 # 安装 composer
-RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer;composer config -g repo.packagist composer https://packagist.phpcomposer.com
+RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
 # 安装swoole 2.1.1版本 
 ENV SWOOLE_VERSION 2.1.1
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
