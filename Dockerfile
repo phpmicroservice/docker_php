@@ -29,7 +29,7 @@ RUN apt-get install -y \
 	&& docker-php-ext-install -j$(nproc) gd
 
 # 安装 composer
-RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer;composer config -g repo.packagist composer https://packagist.phpcomposer.com
+RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
 
 # 安装 swoole 
 ENV SWOOLE_VERSION 2.1.1
