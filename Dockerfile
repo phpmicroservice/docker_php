@@ -40,6 +40,6 @@ RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VE
     && rm -r cphalcon-${PHALCON_VERSION}
     
 # 安装 composer
-RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer;composer config -g repo.packagist composer https://packagist.phpcomposer.com
+RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
 
 COPY default.conf /etc/apache2/sites-enabled/000-default.conf
