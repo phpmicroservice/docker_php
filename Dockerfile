@@ -36,6 +36,9 @@ RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local
 # 安装swoole 2.1.1版本 
 ENV SWOOLE_VERSION 2.1.1
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
+# amqp安装
+ENV AMQP_VERSION 1.9.3
+RUN pecl install amqp-${AMQP_VERSION};docker-php-ext-enable amqp;
 # 安装phalcon 3.1.2版本,这是7.1版本php可安装的最高版本
 ENV PHALCON_VERSION=3.1.2
 RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VERSION}" | tar -xz \
