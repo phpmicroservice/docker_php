@@ -28,8 +28,9 @@ RUN pecl install redis-3.1.6 \
 RUN apt-get install -y libmemcached-dev zlib1g-dev \
     && pecl install memcached-3.0.4\
     && docker-php-ext-enable memcached
-
-
+# pecl install inotify
+RUN pecl install inotify-2.0.0\
+    && docker-php-ext-enable inotify
 
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
