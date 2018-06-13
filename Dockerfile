@@ -4,7 +4,7 @@
 # phpmicroservice/docker_php:71_phalcon_apache
 #
 
-FROM php:7.1.15-cli
+FROM php:7.1.18-cli
 
 MAINTAINER Dongasai 1514582970@qq.com
 
@@ -22,7 +22,7 @@ RUN apt-get install -y \
 	&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
 	&& docker-php-ext-install -j$(nproc) gd
 	
-RUN pecl install redis-3.1.6 \
+RUN pecl install redis-4.0.2 \
     && pecl install xdebug-2.5.0 \
     && docker-php-ext-enable redis xdebug
 RUN apt-get install -y libmemcached-dev zlib1g-dev \
