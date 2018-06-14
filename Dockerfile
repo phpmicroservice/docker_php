@@ -32,5 +32,5 @@ RUN apt-get install -y \
 RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
 
 # 安装 swoole 
-ENV SWOOLE_VERSION 2.1.1
+ENV SWOOLE_VERSION 2.2.0
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
