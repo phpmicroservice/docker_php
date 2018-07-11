@@ -33,7 +33,7 @@ RUN pecl install inotify-2.0.0\
     && docker-php-ext-enable inotify
 
 # 安装 composer
-RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer;composer global require hirak/prestissimo
 # 安装swoole 2.1.1版本 
 ENV SWOOLE_VERSION 2.2.0
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
