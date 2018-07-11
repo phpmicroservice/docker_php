@@ -14,8 +14,7 @@ RUN apt-get install -y git vim wget zip zlib1g-dev;
 # 安装常用扩展
 RUN docker-php-ext-install pdo pdo_mysql;docker-php-ext-enable pdo pdo_mysql;
 RUN pecl install redis-4.0.2 \
-    && pecl install xdebug-2.5.0 \
-    && docker-php-ext-enable redis xdebug
+    && docker-php-ext-enable redis
 RUN apt-get install -y libmemcached-dev zlib1g-dev \
     && pecl install memcached-3.0.4\
     && docker-php-ext-enable memcached
