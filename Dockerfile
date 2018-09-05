@@ -4,7 +4,7 @@
 # phpmicroservice/docker_php
 #
 
-FROM library/php:5.4.40-apache
+FROM library/php:5.6.37-apache
 
 MAINTAINER Dongasai 1514582970@qq.com
 ENV SWOOLE_VERSION=2.1.1
