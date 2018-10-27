@@ -30,7 +30,7 @@ RUN docker-php-ext-install mbstring
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
 # 安装phalcon 3.1.2版本,这是7.1版本php可安装的最高版本
-ENV PHALCON_VERSION=3.1.2
+ENV PHALCON_VERSION=3.4.1
 RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VERSION}" | tar -xz \
     && cd cphalcon-${PHALCON_VERSION}/build \
     && ./install \
