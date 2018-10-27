@@ -37,5 +37,12 @@ RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VE
     && cp ../tests/_ci/phalcon.ini $(php-config --configure-options | grep -o "with-config-file-scan-dir=\([^ ]*\)" | awk -F'=' '{print $2}') \
     && cd ../../ \
     && rm -r cphalcon-${PHALCON_VERSION}
-	
+# 安装phalcon 3.1.2版本,这是7.1版本php可安装的最高版本
+WORKDIR /home
+ENV PHALCON_DEVTOOL_VERSION=3.4.0
+RUN curl -sSL "https://github.com/phalcon/phalcon-devtools/archive/v${PHALCON_DEVTOOL_VERSION}.tar.gz" | tar -xz \
+    && cd phalcon-devtools-${PHALCON_DEVTOOL_VERSION} \
+    && ./phalcon.sh \
+    && ln -s /home/phalcon-devtools-3.4.0/phalcon.php /usr/bin/phalcon 
+# 设置运行目录为public
 COPY default.conf /etc/apache2/sites-enabled/000-default.conf
