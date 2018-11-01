@@ -4,7 +4,7 @@
 # phpmicroservice/docker_php:71_phalcon_apache
 #
 
-FROM php:7.1.18-cli
+FROM php:7.2.11-cli
 
 MAINTAINER Dongasai 1514582970@qq.com
 
@@ -32,11 +32,11 @@ RUN pecl install inotify-2.0.0\
 
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer;composer global require hirak/prestissimo
-# 安装swoole 2.1.1版本 
-ENV SWOOLE_VERSION 2.2.0
+# 安装swoole  
+ENV SWOOLE_VERSION 4.2.5
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
 # 安装phalcon 3.1.2版本,这是7.1版本php可安装的最高版本
-ENV PHALCON_VERSION=3.1.2
+ENV PHALCON_VERSION=3.4.1
 RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VERSION}" | tar -xz \
     && cd cphalcon-${PHALCON_VERSION}/build \
     && ./install \
