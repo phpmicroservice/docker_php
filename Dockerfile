@@ -35,7 +35,7 @@ RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local
 # 安装swoole  
 ENV SWOOLE_VERSION 4.2.5
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
-# 安装phalcon 3.1.2版本,这是7.1版本php可安装的最高版本
+# 安装phalcon
 ENV PHALCON_VERSION=3.4.1
 RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VERSION}" | tar -xz \
     && cd cphalcon-${PHALCON_VERSION}/build \
@@ -43,3 +43,12 @@ RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VE
     && cp ../tests/_ci/phalcon.ini $(php-config --configure-options | grep -o "with-config-file-scan-dir=\([^ ]*\)" | awk -F'=' '{print $2}') \
     && cd ../../ \
     && rm -r cphalcon-${PHALCON_VERSION}
+# 安装phalcon 的开发工具包
+WORKDIR /home
+ENV PHALCON_DEVTOOL_VERSION=3.4.0
+RUN curl -sSL "https://github.com/phalcon/phalcon-devtools/archive/v${PHALCON_DEVTOOL_VERSION}.tar.gz" | tar -xz \
+    && cd phalcon-devtools-${PHALCON_DEVTOOL_VERSION} \
+    && ./phalcon.sh \
+    && ln -s /home/phalcon-devtools-3.4.0/phalcon.php /usr/bin/phalcon
+#重置工作目录
+WORKDIR /var/www/html
