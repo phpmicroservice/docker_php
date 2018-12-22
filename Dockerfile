@@ -4,7 +4,7 @@
 # phpmicroservice/docker_php:71_phalcon_apache
 #
 
-FROM php:7.2.9-apache
+FROM php:7.2.13-apache
 
 MAINTAINER Dongasai 1514582970@qq.com
 
@@ -13,7 +13,7 @@ RUN apt-get update;
 RUN apt-get install -y git vim wget zip zlib1g-dev;
 # 安装常用扩展
 RUN docker-php-ext-install pdo pdo_mysql;docker-php-ext-enable pdo pdo_mysql;
-RUN pecl install redis-4.1.1 \
+RUN pecl install redis-4.2.0 \
     && docker-php-ext-enable redis
 RUN apt-get install -y libmemcached-dev zlib1g-dev \
     && pecl install memcached-3.0.4\
@@ -27,13 +27,13 @@ RUN apt-get install -y \
 	&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
 	&& docker-php-ext-install gd
 RUN docker-php-ext-install mbstring
-# 安装swoole 2.1.2版本 
-ENV SWOOLE_VERSION 4.2.5
+# 安装swoole 版本 
+ENV SWOOLE_VERSION 4.2.10
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
 
 
-# 安装phalcon 3.4.1版本
-ENV PHALCON_VERSION=3.4.1
+# 安装phalcon 版本
+ENV PHALCON_VERSION=3.4.2
 RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VERSION}" | tar -xz \
     && cd cphalcon-${PHALCON_VERSION}/build \
     && ./install \
@@ -46,7 +46,7 @@ ENV PHALCON_DEVTOOL_VERSION=3.4.0
 RUN curl -sSL "https://github.com/phalcon/phalcon-devtools/archive/v${PHALCON_DEVTOOL_VERSION}.tar.gz" | tar -xz \
     && cd phalcon-devtools-${PHALCON_DEVTOOL_VERSION} \
     && ./phalcon.sh \
-    && ln -s /home/phalcon-devtools-3.4.0/phalcon.php /usr/bin/phalcon
+    && ln -s /home/phalcon-devtools-${PHALCON_DEVTOOL_VERSION}/phalcon.php /usr/bin/phalcon
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
 
