@@ -32,8 +32,8 @@ ENV SWOOLE_VERSION 4.2.5
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
 
 
-# 安装phalcon 3.4.1版本
-ENV PHALCON_VERSION=3.4.1
+# 安装phalcon 3.4.2版本
+ENV PHALCON_VERSION=3.4.2
 RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VERSION}" | tar -xz \
     && cd cphalcon-${PHALCON_VERSION}/build \
     && ./install \
