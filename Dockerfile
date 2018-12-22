@@ -16,7 +16,7 @@ RUN docker-php-ext-install pdo pdo_mysql;docker-php-ext-enable pdo pdo_mysql;
 RUN pecl install redis-4.2.0 \
     && docker-php-ext-enable redis
 RUN apt-get install -y libmemcached-dev zlib1g-dev \
-    && pecl install memcached\
+    && pecl install memcached-3.0.4\
     && docker-php-ext-enable memcached
 RUN docker-php-ext-install bcmath;
 RUN docker-php-ext-install zip;
