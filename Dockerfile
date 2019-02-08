@@ -36,7 +36,7 @@ RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local
 ENV SWOOLE_VERSION 4.2.5
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
 # 安装 swoole_serialize 
-ENV pecl install swoole_serialize;docker-php-ext-enable swoole_serialize
+ENV pecl install swoole_serialize-0.1.1;docker-php-ext-enable swoole_serialize
 
 # 安装phalcon
 ENV PHALCON_VERSION=3.4.1
