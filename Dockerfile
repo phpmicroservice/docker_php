@@ -30,7 +30,8 @@ RUN docker-php-ext-install mbstring
 # 安装swoole 版本 
 ENV SWOOLE_VERSION 4.2.10
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
-
+# 安装 swoole_serialize 
+ENV pecl install swoole_serialize;docker-php-ext-enable swoole_serialize
 
 # 安装phalcon 版本
 ENV PHALCON_VERSION=3.4.2
