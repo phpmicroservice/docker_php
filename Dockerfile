@@ -33,7 +33,7 @@ RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
 
 
 # 安装phalcon 3.4.2版本
-ENV PHALCON_VERSION=3.4.2
+ENV PHALCON_VERSION=3.4.3
 RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VERSION}" | tar -xz \
     && cd cphalcon-${PHALCON_VERSION}/build \
     && ./install \
@@ -42,7 +42,7 @@ RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VE
     && rm -r cphalcon-${PHALCON_VERSION}
 # 安装phalcon 的开发工具包
 WORKDIR /home
-ENV PHALCON_DEVTOOL_VERSION=3.4.0
+ENV PHALCON_DEVTOOL_VERSION=3.4.1
 RUN curl -sSL "https://github.com/phalcon/phalcon-devtools/archive/v${PHALCON_DEVTOOL_VERSION}.tar.gz" | tar -xz \
     && cd phalcon-devtools-${PHALCON_DEVTOOL_VERSION} \
     && ./phalcon.sh \
