@@ -33,13 +33,13 @@ RUN pecl install inotify-2.0.0\
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer;composer global require hirak/prestissimo
 # 安装swoole  
-ENV SWOOLE_VERSION 4.2.5
+ENV SWOOLE_VERSION 4.2.12
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
 # 安装 swoole_serialize 
 RUN pecl install swoole_serialize-0.1.1;docker-php-ext-enable swoole_serialize;
 
 # 安装phalcon
-ENV PHALCON_VERSION=3.4.1
+ENV PHALCON_VERSION=3.4.3
 RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VERSION}" | tar -xz \
     && cd cphalcon-${PHALCON_VERSION}/build \
     && ./install \
@@ -48,7 +48,7 @@ RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VE
     && rm -r cphalcon-${PHALCON_VERSION}
 # 安装phalcon 的开发工具包
 WORKDIR /home
-ENV PHALCON_DEVTOOL_VERSION=3.4.0
+ENV PHALCON_DEVTOOL_VERSION=3.4.1
 RUN curl -sSL "https://github.com/phalcon/phalcon-devtools/archive/v${PHALCON_DEVTOOL_VERSION}.tar.gz" | tar -xz \
     && cd phalcon-devtools-${PHALCON_DEVTOOL_VERSION} \
     && ./phalcon.sh \
