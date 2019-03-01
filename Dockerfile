@@ -28,7 +28,7 @@ RUN apt-get install -y \
 	&& docker-php-ext-install gd
 RUN docker-php-ext-install mbstring
 # 安装swoole版本 
-ENV SWOOLE_VERSION 4.2.10
+ENV SWOOLE_VERSION 4.2.12
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
 
 
