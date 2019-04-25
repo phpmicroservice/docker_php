@@ -4,8 +4,7 @@
 # phpmicroservice/docker_php:71_phalcon_apache
 #
 
-FROM php:7.2.13-apache
-
+FROM php:7.2-fpm
 MAINTAINER Dongasai 1514582970@qq.com
 
 RUN a2enmod rewrite
@@ -28,7 +27,7 @@ RUN apt-get install -y \
 	&& docker-php-ext-install gd
 RUN docker-php-ext-install mbstring
 # 安装swoole 版本 
-ENV SWOOLE_VERSION 4.2.12
+ENV SWOOLE_VERSION 4.3.3
 RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
 # 安装 swoole_serialize 
 RUN pecl install swoole_serialize-0.1.1;docker-php-ext-enable swoole_serialize;
