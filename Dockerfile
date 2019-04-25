@@ -48,6 +48,3 @@ RUN curl -sSL "https://github.com/phalcon/phalcon-devtools/archive/v${PHALCON_DE
     && ln -s /home/phalcon-devtools-${PHALCON_DEVTOOL_VERSION}/phalcon.php /usr/bin/phalcon
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
-
-# 设置运行目录为public
-COPY default.conf /etc/apache2/sites-enabled/000-default.conf
