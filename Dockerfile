@@ -7,7 +7,6 @@
 FROM php:7.2-fpm
 MAINTAINER Dongasai 1514582970@qq.com
 
-RUN a2enmod rewrite
 RUN apt-get update;
 RUN apt-get install -y git vim wget zip zlib1g-dev;
 # 安装常用扩展
