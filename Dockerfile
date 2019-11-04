@@ -13,10 +13,10 @@ RUN apt-get update;
 RUN apt-get install -y git vim wget zip zlib1g-dev;
 # 安装常用扩展
 RUN docker-php-ext-install pdo pdo_mysql;docker-php-ext-enable pdo pdo_mysql;
-RUN pecl install redis-4.2.0 \
+RUN pecl install redis \
     && docker-php-ext-enable redis
 RUN apt-get install -y libmemcached-dev zlib1g-dev \
-    && pecl install memcached-3.0.4\
+    && pecl install memcached\
     && docker-php-ext-enable memcached
 RUN docker-php-ext-install bcmath;
 RUN docker-php-ext-install zip;
@@ -28,8 +28,7 @@ RUN apt-get install -y \
 	&& docker-php-ext-install gd
 RUN docker-php-ext-install mbstring
 # 安装swoole 版本 
-ENV SWOOLE_VERSION 4.3.3
-RUN pecl install swoole-${SWOOLE_VERSION};docker-php-ext-enable swoole;
+RUN pecl install swoole;docker-php-ext-enable swoole;
 # 安装 swoole_serialize 
 RUN pecl install swoole_serialize-0.1.1;docker-php-ext-enable swoole_serialize;
 
